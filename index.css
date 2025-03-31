@@ -1,0 +1,79 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 13px;
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-items>ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav-items>ul>li{
+    font-family: Arvo;
+    padding: 10px;
+    font-size: large;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; 
+}
+
+.nav-items{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 30rem;
+}
+
+.search-bar{
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-card{
+    width: 250px;
+    margin: 10px;
+    padding: 10px 5px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    flex:0 0 auto;
+}
+
+.res-logo{
+    width: 100%;
+    height: 157.48px;
+    border-radius: 5px;
+}
+
+.restaurant-card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.restaurant-container{
+    display: flex;
+}
+
+.restaurant-container {
+    display: flex;
+    flex-wrap: wrap;  /* This allows cards to wrap to next line */
+    justify-content: center;  /* Centers cards horizontally */
+    gap: 20px;  /* Adds consistent spacing between cards */
+    padding: 20px;  /* Adds padding around the container */
+    max-width: 1200px;  /* Optional: limits maximum width */
+    margin: 0 auto;  /* Centers the container itself */
+}
