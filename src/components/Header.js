@@ -15,6 +15,11 @@ const Header = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/aboutus">About Us</Link></li>
           <li><Link to="/contactus">Contact Us</Link></li>
+          <li>
+            <Link className="nav-links" to="/grocery">
+              Grocery
+            </Link>
+          </li>
           <li>Cart</li>
           <button className="login" 
           onClick={() => 
