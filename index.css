@@ -1,4 +1,4 @@
-.header{
+/* .header{
     display: flex;
     justify-content: space-between;
     padding: 13px;
@@ -66,14 +66,25 @@
 
 .restaurant-container{
     display: flex;
-}
+} */
 
-.restaurant-container {
-    display: flex;
-    flex-wrap: wrap;  /* This allows cards to wrap to next line */
-    justify-content: center;  /* Centers cards horizontally */
-    gap: 20px;  /* Adds consistent spacing between cards */
-    padding: 20px;  /* Adds padding around the container */
-    max-width: 1200px;  /* Optional: limits maximum width */
-    margin: 0 auto;  /* Centers the container itself */
-}
+/* .restaurant-container { */
+    /* display: flex; */
+    /* This allows cards to wrap to next line */
+    /* flex-wrap: wrap;   */
+    /* Centers cards horizontally */
+    /* justify-content: center;       */
+    /* Adds consistent spacing between cards */
+    /* gap: 20px;   */
+    /* Adds padding around the container */
+    /* padding: 20px;   */
+    /* Optional: limits maximum width */
+    /* max-width: 1200px; */
+    /* Centers the container itself */  
+    /* margin: 0 auto;   */
+/* } */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

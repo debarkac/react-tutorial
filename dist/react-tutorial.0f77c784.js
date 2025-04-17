@@ -160,11 +160,11 @@
       });
     }
   }
-})({"15i6l":[function(require,module,exports,__globalThis) {
+})({"7wZbQ":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 51680;
+var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -16245,12 +16245,12 @@ const Header = ()=>{
     _s();
     const [btnName, setbtnName] = (0, _react.useState)("Login");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "header",
+        className: "header flex justify-between items-center px-6 py-0 top-0 left-0",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "logoContainer",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    className: "logo",
+                    className: "logo h-20 w-20",
                     src: (0, _constants.LOGO_URL)
                 }, void 0, false, {
                     fileName: "src/components/Header.js",
@@ -16265,15 +16265,17 @@ const Header = ()=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "nav-items",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    className: "list-none flex gap-8 items-center",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "p-2 cursor-pointer text-inherit hover:text-blue-300",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/",
                                 children: "Home"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
                                 lineNumber: 15,
-                                columnNumber: 15
+                                columnNumber: 79
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
@@ -16281,13 +16283,14 @@ const Header = ()=>{
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "p-2 cursor-pointer text-inherit hover:text-blue-300",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/aboutus",
                                 children: "About Us"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
                                 lineNumber: 16,
-                                columnNumber: 15
+                                columnNumber: 79
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
@@ -16295,13 +16298,14 @@ const Header = ()=>{
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "p-2 cursor-pointer text-inherit hover:text-blue-300",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/contactus",
                                 children: "Contact Us"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
                                 lineNumber: 17,
-                                columnNumber: 15
+                                columnNumber: 79
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
@@ -16309,6 +16313,7 @@ const Header = ()=>{
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "p-2 cursor-pointer text-inherit hover:text-blue-300",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 className: "nav-links",
                                 to: "/grocery",
@@ -16324,6 +16329,7 @@ const Header = ()=>{
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            className: "p-2 cursor-pointer text-inherit hover:text-blue-300",
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
@@ -16331,7 +16337,7 @@ const Header = ()=>{
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            className: "login",
+                            className: "p-2 cursor-pointer text-inherit hover:text-blue-300 login",
                             onClick: ()=>// toggling
                                 btnName === "Login" ? setbtnName("Logout") : setbtnName("Login"),
                             children: btnName
@@ -25976,14 +25982,14 @@ const Body = ()=>{
         className: "body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "filter",
+                className: "filter flex",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "search",
+                        className: "search p-4 justify-inline",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 type: "text",
-                                className: "search-box",
+                                className: "search-box border-2 border-black rounded-lg",
                                 value: searchText,
                                 onChange: (e)=>setsearchText(e.target.value)
                             }, void 0, false, {
@@ -25992,6 +25998,7 @@ const Body = ()=>{
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "px-4 bg-green-200 ml-2 rounded-md items-center",
                                 onClick: ()=>{
                                     const filteredRestaurants = listofRestaurants.filter((res)=>res.info?.name.toLowerCase().includes(searchText.toLowerCase()));
                                     setFilteredRestaurants(filteredRestaurants);
@@ -26008,13 +26015,20 @@ const Body = ()=>{
                         lineNumber: 49,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "filter-btn",
-                        onClick: ()=>{
-                            const filterList = listofRestaurants.filter((res)=>res.info.avgRating > 4);
-                            setlistofRestaurants(filterList); //as soon as the button is clicked the component is rerendered which is the power of hooks in react
-                        },
-                        children: "Top rated restaurants"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: " flex items-center",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "filter-btn px-4 bg-green-200 rounded-md",
+                            onClick: ()=>{
+                                const filterList = listofRestaurants.filter((res)=>res.info.avgRating > 4);
+                                setlistofRestaurants(filterList); //as soon as the button is clicked the component is rerendered which is the power of hooks in react
+                            },
+                            children: "Top rated restaurants"
+                        }, void 0, false, {
+                            fileName: "src/components/Body.js",
+                            lineNumber: 64,
+                            columnNumber: 9
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
                         lineNumber: 63,
@@ -26027,24 +26041,24 @@ const Body = ()=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "restaurant-container",
+                className: "restaurant-container flex flex-wrap",
                 children: filteredRestaurants.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: "/restaurants/" + restaurant.info.id,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
                             resData: restaurant
                         }, restaurant.info.id, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 81,
+                            lineNumber: 83,
                             columnNumber: 82
                         }, undefined)
                     }, restaurant.info.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 81,
+                        lineNumber: 83,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 75,
+                lineNumber: 77,
                 columnNumber: 7
             }, undefined)
         ]
@@ -26087,7 +26101,7 @@ const RestaurantCard = (props)=>{
     console.log(props);
     const { name, cuisines, avgRating, cloudinaryImageId } = resData?.info;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "restaurant-card",
+        className: "restaurant-card m-4 p-4 w-[200px] bg-gray-200 hover:bg-gray-400 rounded-md flex flex-col justify-between min-h-[400px]",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "res-logo",
@@ -26099,6 +26113,7 @@ const RestaurantCard = (props)=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                className: "font-bold py-3",
                 children: name
             }, void 0, false, {
                 fileName: "src/components/RestaurantCard.js",
@@ -27304,6 +27319,6 @@ exports.default = useRestaurantMenu;
 },{"react":"jMk1U","./constants":"dIVBf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"baeVm":[function(require,module,exports,__globalThis) {
 module.exports = import("./Grocery.390591cb.js").then(()=>module.bundle.root('cz4SJ'));
 
-},{"cz4SJ":"cz4SJ"}]},["15i6l","2R06K"], "2R06K", "parcelRequire2fda", {}, null, null, "http://localhost:51680")
+},{"cz4SJ":"cz4SJ"}]},["7wZbQ","2R06K"], "2R06K", "parcelRequire2fda", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=react-tutorial.0f77c784.js.map

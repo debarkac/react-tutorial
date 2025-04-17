@@ -45,23 +45,24 @@ if(onlineStatus===false)
 
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search p-4 justify-inline">
           <input
             type="text"
-            className="search-box"
+            className="search-box border-2 border-black rounded-lg"
             value={searchText}
             onChange={(e) => setsearchText(e.target.value)}//everytime it is changed the component is re rendered again
           ></input>
-          <button
+          <button className="px-4 bg-green-200 ml-2 rounded-md items-center"
           onClick={()=>{
             const filteredRestaurants=listofRestaurants.filter((res)=>res.info?.name.toLowerCase().includes(searchText.toLowerCase()));
             setFilteredRestaurants(filteredRestaurants)
           }}>
             Search</button>
         </div>
+        <div className=" flex items-center">
         <button
-          className="filter-btn"
+          className="filter-btn px-4 bg-green-200 rounded-md"
           onClick={() => {
             const filterList = listofRestaurants.filter(
               (res) => res.info.avgRating > 4
@@ -71,8 +72,9 @@ if(onlineStatus===false)
         >
           Top rated restaurants
         </button>
+        </div>
       </div>
-      <div className="restaurant-container">
+      <div className="restaurant-container flex flex-wrap">
         {/* <RestaurantCard restaurantName="KFC" cuisine="Burger"/> */}
         {/* <RestaurantCard resData={restaurantList[0]}/> */}
         {/* <RestaurantCard resData={restaurantList[1]}/> */}
