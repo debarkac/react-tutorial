@@ -8,6 +8,9 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import userContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./redux/appStore";
+import Cart from "./components/Cart";
 
 // const RestaurantCard=({restaurantName,cuisine})------>can also write like this---->directly destructuring the props object
 
@@ -35,6 +38,9 @@ const AppLayout = () => {
   return (
 
     // what happens here is that the whole app is getting the user. setUserName is passed so that the context can be changed anywhere in the app
+
+    // adding the store to the application
+    <Provider store={appStore}>
     <userContext.Provider value={{loggedInUser:userName,setUserName}}>
     <div className="root">
       <Header />
@@ -42,6 +48,7 @@ const AppLayout = () => {
       {/* <Body /> */}
     </div>
     </userContext.Provider>
+    </Provider>
   );
 };
 
@@ -82,6 +89,10 @@ const appRounter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path:"/cart",
+        element: <Cart />,
       },
 
 
