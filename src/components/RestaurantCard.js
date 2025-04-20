@@ -16,4 +16,20 @@ const RestaurantCard=(props)=>{
     )
 }
 
+
+//this is a higher order component
+//it takes a restaurant card ---> adds a promoted label to it ---> returns it
+export const closedLabel=(RestaurantCard)=>{
+    return(props)=>{//return a component
+        //it should have the same props as it is given in RestaurantCards component
+        return(
+            <div>
+            <label className="absolute bg-black text-white m-2 p-2 rounded-md">Closed</label>
+            <RestaurantCard {...props}/>
+            </div>
+        )
+    }
+}
+
+
 export default RestaurantCard

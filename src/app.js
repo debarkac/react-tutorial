@@ -1,4 +1,4 @@
-import React,{lazy,Suspense} from "react";
+import React,{lazy,Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import userContext from "./utils/userContext";
 
 // const RestaurantCard=({restaurantName,cuisine})------>can also write like this---->directly destructuring the props object
 
@@ -16,13 +17,31 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 //for this lazy loading all the code does not come at once. it will come only when it is requested
 const Grocery=lazy(()=>import("./components/Grocery"))
 
+
+
 const AppLayout = () => {
+
+  const [userName,setUserName]=useState();
+
+  useEffect(()=>{
+    const data={
+      name:"Debarka Chakraborti"
+    }
+  
+    setUserName(data.name);
+  },[])
+
+
   return (
+
+    // what happens here is that the whole app is getting the user. setUserName is passed so that the context can be changed anywhere in the app
+    <userContext.Provider value={{loggedInUser:userName,setUserName}}>
     <div className="root">
       <Header />
       <Outlet />
       {/* <Body /> */}
     </div>
+    </userContext.Provider>
   );
 };
 

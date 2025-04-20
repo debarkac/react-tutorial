@@ -1,16 +1,24 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { closedLabel } from "./RestaurantCard";
 import restaurantList from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
 
 const Body = () => {
   // const [listofRestaurants,setlistofRestaurants]=useState(restaurantList);
   const [listofRestaurants, setlistofRestaurants] = useState([]);
-  const [filteredRestaurants,setFilteredRestaurants]=useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   const [searchText, setsearchText] = useState("");
+
+  //calling a higher order component
+  //RestaurantCardPromoted will have the card with the promoted label
+  const RestaurantCardClosed = closedLabel(RestaurantCard);
+  // console.log(RestaurantCardPromoted)
+
+  const { loggedInUser, setUserName } = useContext(userContext);
 
   useEffect(() => {
     fetchData();
@@ -36,9 +44,8 @@ const Body = () => {
     );
   };
 
-const onlineStatus=useOnlineStatus();
-if(onlineStatus===false)
-  return <h1>You are offline</h1>
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) return <h1>You are offline</h1>;
 
   //conditional rendering
   if (listofRestaurants.length === 0) return <Shimmer />;
@@ -51,27 +58,44 @@ if(onlineStatus===false)
             type="text"
             className="search-box border-2 border-black rounded-lg"
             value={searchText}
-            onChange={(e) => setsearchText(e.target.value)}//everytime it is changed the component is re rendered again
+            onChange={(e) => setsearchText(e.target.value)} //everytime it is changed the component is re rendered again
           ></input>
-          <button className="px-4 bg-green-200 ml-2 rounded-md items-center"
-          onClick={()=>{
-            const filteredRestaurants=listofRestaurants.filter((res)=>res.info?.name.toLowerCase().includes(searchText.toLowerCase()));
-            setFilteredRestaurants(filteredRestaurants)
-          }}>
-            Search</button>
+          <button
+            className="px-4 bg-green-200 ml-2 rounded-md items-center"
+            onClick={() => {
+              const filteredRestaurants = listofRestaurants.filter((res) =>
+                res.info?.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurants(filteredRestaurants);
+            }}
+          >
+            Search
+          </button>
         </div>
         <div className=" flex items-center">
-        <button
-          className="filter-btn px-4 bg-green-200 rounded-md"
-          onClick={() => {
-            const filterList = listofRestaurants.filter(
-              (res) => res.info.avgRating > 4
-            );
-            setlistofRestaurants(filterList); //as soon as the button is clicked the component is rerendered which is the power of hooks in react
-          }}
-        >
-          Top rated restaurants
-        </button>
+          <button
+            className="filter-btn px-4 bg-green-200 rounded-md"
+            onClick={() => {
+              const filterList = listofRestaurants.filter(
+                (res) => res.info.avgRating > 4
+              );
+              setlistofRestaurants(filterList); //as soon as the button is clicked the component is rerendered which is the power of hooks in react
+            }}
+          >
+            Top rated restaurants
+          </button>
+        </div>
+
+
+        {/* when the username is change in the input box it will automatically change all over the app */}
+        <div className="flex items-center text-center mx-8">
+           Username: 
+          <input
+            type="text"
+            className="search-box border-2 border-black rounded-lg mx-4"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          ></input>
         </div>
       </div>
       <div className="restaurant-container flex flex-wrap">
@@ -80,7 +104,17 @@ if(onlineStatus===false)
         {/* <RestaurantCard resData={restaurantList[1]}/> */}
 
         {filteredRestaurants.map((restaurant) => (
-          <Link to={"/restaurants/"+restaurant.info.id} key={restaurant.info.id}><RestaurantCard key={restaurant.info.id} resData={restaurant} /></Link>
+          <Link
+            to={"/restaurants/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            {/* if restaurant is closed then add a label to it */}
+            {!restaurant.info.isOpen ? (
+              <RestaurantCardClosed resData={restaurant} />
+            ) : (
+              <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+            )}
+          </Link>
         ))}
         {/* <RestaurantCard restaurant={restaurantList} /> */}
       </div>
